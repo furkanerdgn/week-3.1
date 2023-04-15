@@ -89,7 +89,7 @@ function Header() {
                 id="city"
                 value={inputCity}
                 onChange={(e) => setInputCity(e.target.value)}
-                className="block px-2.5 pb-2.5 pt-4 w-full text-base text-gray-900 bg-white rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-1 focus:border-blue-600 peer"
+                className="block px-2.5 pb-2.5 pt-4 w-full text-base min-w-[6rem] text-gray-900 bg-white rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-1 focus:border-blue-600 peer"
                 placeholder=" "
               />
               <label
