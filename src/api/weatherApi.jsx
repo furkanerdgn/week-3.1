@@ -1,27 +1,37 @@
-import axios from 'axios';
+import axios from "axios";
 
+const API_KEY = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
+const BASE_URL = "http://api.openweathermap.org/data/2.5";
 
-const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
-const BASE_URL = 'http://api.openweathermap.org/data/2.5';
-
-export const fetchWeatherForecast = async (cityId) => {
-  const url = `${BASE_URL}/forecast?id=${cityId}&appid=${API_KEY}&units=metric`;
+export const fetchCityWithName = async (cityName) => {
+  const url = `${BASE_URL}/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
   try {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error(error);
     return null;
   }
 };
 
-export const fetchCurrentWeather = async (cityId) => {
-  const url = `${BASE_URL}/weather?id=${cityId}&appid=${API_KEY}&units=metric`;
+// forecast with city name
+export const fetchForecastWeek = async (cityName) => {
+  const url = `${BASE_URL}/forecast?q=${cityName}&appid=${API_KEY}&units=metric`;
   try {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error(error);
     return null;
   }
-};
+}
+
+// forecast with coordinates
+
+export const fetchForecastWeekWithCoords = async (coords) => {
+  const url = `${BASE_URL}/forecast?lat=${coords.latitude}&lon=${coords.longitude}&appid=${API_KEY}&units=metric`;
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    return null;
+  }
+}
