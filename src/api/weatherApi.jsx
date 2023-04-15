@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
-const BASE_URL = "http://api.openweathermap.org/data/2.5";
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 export const fetchCityWithName = async (cityName) => {
   const url = `${BASE_URL}/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
